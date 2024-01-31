@@ -39,6 +39,22 @@ class TestSetUp(APITestCase):
             'email': 'test123gmail.com',
             'date_of_birth': ''
         }
+        
+    def setUpDetail(self):
+        self.detail_url = reverse('customer-detail', kwargs={'customer_pk': self.customer.pk})    
+        self.detail = {
+            'first_name': 'an',
+            'last_name': 'pham',
+            'email': 'test123@gmail.com',
+            'date_of_birth': '2003-03-15'
+        }
+        self.detail_not_found = {
+            'first_name': '',
+            'last_name': '',
+            'email': '',
+            'date_of_birth': ''
+        }
+        
         return super().setUp()
 
     def tearDown(self) -> None:
