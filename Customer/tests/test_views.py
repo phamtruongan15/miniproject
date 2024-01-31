@@ -27,3 +27,4 @@ class TestCustomerView(TestSetUp):
     def test_get_customer_success(self):
         response = self.client.get(self.detail_url, self.detail)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
