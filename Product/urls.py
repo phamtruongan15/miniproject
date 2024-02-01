@@ -10,5 +10,5 @@ urlpatterns = [
     path('rating/<int:pk>/', views.RatingCreateView.as_view(), name='rating-product'),
     path('upload/', views.ImgeView.as_view(), name='upload'),
     path('employee/', views.EmployeeCountView.as_view(), name='employee'),
-    path('list/', views.ProductSearchView.as_view(), name='list'),
+    path('list/', views.ProductSearchView.as_view(), name='search'),
 ]

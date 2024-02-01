@@ -1,10 +1,13 @@
 
 from django.urls import reverse
 from rest_framework.test import APITestCase
+from Customer.models import Customer
+
 
 class TestSetUp(APITestCase):
     def setUp(self):
         self.create_url = reverse('customer-create')
+       
         self.customer = {
             'first_name': 'an',
             'last_name': 'pham',
@@ -40,8 +43,15 @@ class TestSetUp(APITestCase):
             'date_of_birth': ''
         }
         
-        self.detail_url = reverse('customer-detail')    
+        self.customer_email_not_found = {
+            'first_name': '',
+            'last_name': '',
+            'email': 'not_found_email@gmail.com',
+            'date_of_birth': ''
+        }
         
+        
+      
         return super().setUp()
 
     def tearDown(self) -> None:

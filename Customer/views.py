@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from rest_framework.views import APIView
 from drf_yasg import openapi
 from rest_framework.response import Response
@@ -14,10 +14,10 @@ class CustomerGet(APIView):
    
     def get(self, request, pk):
         # Lấy danh sách khách hàng từ cơ sở dữ liệu
-        customers = Customer.objects.filter(pk=pk).first()
-
+        customer = get_object_or_404(Customer, pk=pk)
+        
         # Sử dụng serializer để chuyển đổi danh sách khách hàng thành dữ liệu JSON
-        serializer = CustomerSerializer(customers, many=False)
+        serializer = CustomerSerializer(customer, many=False)
 
         # Trả về response chứa dữ liệu JSON
         return Response(serializer.data, status=status.HTTP_200_OK)
