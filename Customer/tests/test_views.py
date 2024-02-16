@@ -16,7 +16,7 @@ class TestCustomerView(TestSetUp):
         res = self.client.post(self.create_url, self.customer_invalid_email)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_Customer_invalid_date_of_birth(self):
+    def test_customer_invalid_date_of_birth(self):
         res = self.client.post(self.create_url, self.customer_invalid_date_of_birth)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
